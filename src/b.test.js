@@ -1,6 +1,7 @@
 // components/Light.test.js
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
-import Light from './App';	
+import Light from './Light';	
 
 it('renders Light Component', () => {
 	render(<Light name="파워" />);
