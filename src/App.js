@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+
+function Light({ name }) {
+	const [light, setLight] = useState(false);
+
+	return (
+		<div>
+			<h1>
+				{name} {light ? 'ON' : 'OFF'}{' '}
+			</h1>
+			<button
+				onClick={() => setLight(true)}
+				disabled={light ? true : false}
+			>
+				ON
+			</button>
+			<button
+				onClick={() => setLight(false)}
+				disabled={!light ? true : false}
+			>
+				OFF
+			</button>
+		</div>
+	);
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return <Light name="전원" />;
 }
 
 export default App;
